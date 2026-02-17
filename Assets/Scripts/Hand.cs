@@ -23,7 +23,7 @@ public class Hand : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        AnimateHand();
     }
 
     internal void SetGrip(float v)
