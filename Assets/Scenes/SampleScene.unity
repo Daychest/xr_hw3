@@ -2954,6 +2954,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e168fad4a60e34daeb86de8262fd44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gripAction: {fileID: -5194266436686895582, guid: e0ca4504471ca124088e1e2cfe6804ae,
+    type: 3}
+  triggerAction: {fileID: -5684558904543120851, guid: e0ca4504471ca124088e1e2cfe6804ae,
+    type: 3}
   hand: {fileID: 1236459250}
 --- !u!1001 &1705404397
 PrefabInstance:
@@ -3727,6 +3731,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e168fad4a60e34daeb86de8262fd44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gripAction: {fileID: -1289947363739713011, guid: e0ca4504471ca124088e1e2cfe6804ae,
+    type: 3}
+  triggerAction: {fileID: 2526168894431210536, guid: e0ca4504471ca124088e1e2cfe6804ae,
+    type: 3}
   hand: {fileID: 309030060}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
