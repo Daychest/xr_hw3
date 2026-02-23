@@ -733,12 +733,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 122664204}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &129051558 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9004903422020239192, guid: 52bd8d20a9ab4db458eae0438f87354d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1098669064}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &129369365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1435,7 +1429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f2cd46029999404e98664f8374f8536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabPositionOffset: {x: -0.05, y: 0, z: 0}
+  grabPositionOffset: {x: 0.045, y: 0.03, z: 0.03}
   grabRotationOffset: {x: 0, y: 73.57, z: 180.34}
   throwSpeed: {x: 0, y: 0, z: 0}
 --- !u!1001 &293512165
@@ -2637,38 +2631,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1236459248}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &612839341
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 612839342}
-  m_Layer: 0
-  m_Name: knife
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &612839342
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 612839341}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.104, y: 0.843, z: 0.445}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 129051558}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &634293348 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4729290118545964333, guid: 613729429bc48aa489a882fc91565fe4,
@@ -3438,12 +3400,12 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 612839342}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8627779092089365986, guid: 52bd8d20a9ab4db458eae0438f87354d,
         type: 3}
       propertyPath: m_Name
-      value: m9_bayonet_Standard
+      value: knife
       objectReference: {fileID: 0}
     - target: {fileID: 8627779092089365986, guid: 52bd8d20a9ab4db458eae0438f87354d,
         type: 3}
@@ -3453,17 +3415,17 @@ PrefabInstance:
     - target: {fileID: 9004903422020239192, guid: 52bd8d20a9ab4db458eae0438f87354d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.104
       objectReference: {fileID: 0}
     - target: {fileID: 9004903422020239192, guid: 52bd8d20a9ab4db458eae0438f87354d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.843
       objectReference: {fileID: 0}
     - target: {fileID: 9004903422020239192, guid: 52bd8d20a9ab4db458eae0438f87354d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.445
       objectReference: {fileID: 0}
     - target: {fileID: 9004903422020239192, guid: 52bd8d20a9ab4db458eae0438f87354d,
         type: 3}
@@ -6354,5 +6316,5 @@ SceneRoots:
   - {fileID: 1315994836}
   - {fileID: 1055876963}
   - {fileID: 1493977350}
-  - {fileID: 612839342}
+  - {fileID: 1098669064}
   - {fileID: 422498860}

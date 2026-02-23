@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.GraphicsBuffer;
 
 public class CustomGrab : MonoBehaviour
 {
@@ -65,19 +66,8 @@ public class CustomGrab : MonoBehaviour
                 Throwable throwable = grabbedObject.GetComponent<Throwable>();
                 if (throwable != null)
                 {
-                    grabbedObject.position = transform.position + throwable.grabPositionOffset;
+                    grabbedObject.position = transform.position + transform.TransformDirection(throwable.grabPositionOffset);
                     grabbedObject.rotation = transform.rotation * Quaternion.Euler(throwable.grabRotationOffset);
-
-                    lastPosition = transform.position;
-                    lastRotation = transform.rotation;
-
-                    Quaternion deltaRotation = transform.rotation * Quaternion.Inverse(grabbedObject.rotation);
-
-                    grabbedObject.rotation = deltaRotation * grabbedObject.rotation;
-
-                    Vector3 posDiff = lastPosition - grabbedObject.transform.position;
-                    posDiff = deltaRotation * posDiff;
-                    grabbedObject.transform.position = transform.position - posDiff;
                 }
             }
         }
