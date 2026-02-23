@@ -42,6 +42,8 @@ public class CustomGrab : MonoBehaviour
                 grabbedObject = nearObjects.Count > 0 ? nearObjects[0] : otherHand.grabbedObject;
                 grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
                 grabbedObject.GetComponent<Rigidbody>().detectCollisions = false;
+
+                Throwable throwable = grabbedObject.GetComponent<Throwable>();
             }
 
             if (grabbedObject)
@@ -49,13 +51,34 @@ public class CustomGrab : MonoBehaviour
                 // Change these to add the delta position and rotation instead
                 // Save the position and rotation at the end of Update function, so you can compare previous pos/rot to current here
 
-                Quaternion deltaRotation = transform.rotation * Quaternion.Inverse(lastRotation);
+                if (false)
+                {
+                    Quaternion deltaRotation = transform.rotation * Quaternion.Inverse(lastRotation);
 
-                grabbedObject.rotation = deltaRotation * grabbedObject.rotation;
+                    grabbedObject.rotation = deltaRotation * grabbedObject.rotation;
 
-                Vector3 posDiff = lastPosition - grabbedObject.transform.position;
-                posDiff = deltaRotation * posDiff;
-                grabbedObject.transform.position = transform.position - posDiff;
+                    Vector3 posDiff = lastPosition - grabbedObject.transform.position;
+                    posDiff = deltaRotation * posDiff;
+                    grabbedObject.transform.position = transform.position - posDiff;
+                }
+
+                Throwable throwable = grabbedObject.GetComponent<Throwable>();
+                if (throwable != null)
+                {
+                    grabbedObject.position = transform.position + throwable.grabPositionOffset;
+                    grabbedObject.rotation = transform.rotation * Quaternion.Euler(throwable.grabRotationOffset);
+
+                    lastPosition = transform.position;
+                    lastRotation = transform.rotation;
+
+                    Quaternion deltaRotation = transform.rotation * Quaternion.Inverse(grabbedObject.rotation);
+
+                    grabbedObject.rotation = deltaRotation * grabbedObject.rotation;
+
+                    Vector3 posDiff = lastPosition - grabbedObject.transform.position;
+                    posDiff = deltaRotation * posDiff;
+                    grabbedObject.transform.position = transform.position - posDiff;
+                }
             }
         }
         // If let go of button, release object
