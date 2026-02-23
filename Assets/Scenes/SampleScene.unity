@@ -1672,9 +1672,9 @@ MonoBehaviour:
   grabbedObject: {fileID: 0}
   action: {fileID: -1289947363739713011, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
   rightHand: 0
-  throwSpeed: 1000
-  throwOffset: 50
-  throwAngle: {x: 0, y: 0, z: 0}
+  throwSpeed: 8
+  throwOffset: 0.5
+  throwAngle: {x: 0, y: 10, z: 0}
 --- !u!1001 &309910515
 PrefabInstance:
   m_ObjectHideFlags: 0

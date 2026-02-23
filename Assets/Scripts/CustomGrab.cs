@@ -9,7 +9,7 @@ public class CustomGrab : MonoBehaviour
     // This script should be attached to both controller objects in the scene
     // Make sure to define the input in the editor (LeftHand/Grip and RightHand/Grip recommended respectively)
     CustomGrab otherHand = null;
-    public List<Transform> nearObjects = new List<Transform>();
+    [HideInInspector] public List<Transform> nearObjects = new List<Transform>();
     [HideInInspector] public Transform grabbedObject = null;
     public InputActionReference action;
     bool grabbing = false;
@@ -21,9 +21,9 @@ public class CustomGrab : MonoBehaviour
     private Vector3 grabPositionCorrection = new Vector3(1, 1, 1);
     private Vector3 grabRotationCorrection = new Vector3(0, 0, 0);
 
-    public float throwSpeed = 50;
-    public float throwOffset = 1;
-    public Vector3 throwAngle;
+    public float throwSpeed = 8;
+    public float throwOffset = 0.5f;
+    private Vector3 throwAngle = new Vector3(0, -10, 0);
 
 
     private void Start()
@@ -44,6 +44,8 @@ public class CustomGrab : MonoBehaviour
         {
             grabPositionCorrection = new Vector3(-1, 1, 1);
             grabRotationCorrection = new Vector3(0, 0, 180);
+
+            throwAngle = Vector3.Scale(throwAngle, new Vector3(1, -1, 1));
         }
     }
 
@@ -111,11 +113,10 @@ public class CustomGrab : MonoBehaviour
                 rigidbody.isKinematic = false;
                 rigidbody.detectCollisions = true;
 
-                Transform temp = transform;
-                //Quaternion angle = Quaternion.Euler(transform.forward);
-                temp.rotation *= Quaternion.Euler(throwAngle);
-                grabbedObject.position += temp.forward * throwOffset;
-                rigidbody.velocity = temp.forward * throwSpeed;
+                Transform angleTransform = transform;
+                angleTransform.rotation *= Quaternion.Euler(throwAngle);
+                grabbedObject.position += angleTransform.forward * throwOffset;
+                rigidbody.velocity = angleTransform.forward * throwSpeed;
             }
 
             grabbedObject = null;
