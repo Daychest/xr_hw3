@@ -38,7 +38,11 @@ public class CustomGrab : MonoBehaviour
         {
             // Grab nearby object or the object in the other hand
             if (!grabbedObject)
+            {
                 grabbedObject = nearObjects.Count > 0 ? nearObjects[0] : otherHand.grabbedObject;
+                grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
+                grabbedObject.GetComponent<Rigidbody>().detectCollisions = false;
+            }
 
             if (grabbedObject)
             {
@@ -56,7 +60,11 @@ public class CustomGrab : MonoBehaviour
         }
         // If let go of button, release object
         else if (grabbedObject)
+        {
+            grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
+            grabbedObject.GetComponent<Rigidbody>().detectCollisions = true;
             grabbedObject = null;
+        }
 
         // Should save the current position and rotation here
         lastPosition = transform.position;
