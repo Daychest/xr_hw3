@@ -1673,8 +1673,9 @@ MonoBehaviour:
   action: {fileID: -1289947363739713011, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
   rightHand: 0
   throwSpeed: 8
+  spinSpeed: -20
   throwOffset: 0.5
-  throwAngle: {x: 0, y: 10, z: 0}
+  throwAngle: {x: 0, y: -10, z: 0}
 --- !u!1001 &309910515
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4717,8 +4718,9 @@ MonoBehaviour:
   action: {fileID: -5194266436686895582, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
   rightHand: 1
   throwSpeed: 8
+  spinSpeed: -20
   throwOffset: 0.5
-  throwAngle: {x: 0, y: 10, z: 0}
+  throwAngle: {x: 10, y: -10, z: 0}
 --- !u!1 &1264948755 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1a98ac802e1d27e4aa65352065817ec7,

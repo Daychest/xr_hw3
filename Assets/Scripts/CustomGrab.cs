@@ -22,8 +22,9 @@ public class CustomGrab : MonoBehaviour
     private Vector3 grabRotationCorrection = new Vector3(0, 0, 0);
 
     public float throwSpeed = 8;
+    public float spinSpeed = -20;
     public float throwOffset = 0.5f;
-    private Vector3 throwAngle = new Vector3(0, -10, 0);
+    private Vector3 throwAngle = new Vector3(5, -10, 0);
 
 
     private void Start()
@@ -46,6 +47,7 @@ public class CustomGrab : MonoBehaviour
             grabRotationCorrection = new Vector3(0, 0, 180);
 
             throwAngle = Vector3.Scale(throwAngle, new Vector3(1, -1, 1));
+            spinSpeed = -spinSpeed;
         }
     }
 
@@ -113,10 +115,16 @@ public class CustomGrab : MonoBehaviour
                 rigidbody.isKinematic = false;
                 rigidbody.detectCollisions = true;
 
-                Transform angleTransform = transform;
-                angleTransform.rotation *= Quaternion.Euler(throwAngle);
-                grabbedObject.position += angleTransform.forward * throwOffset;
-                rigidbody.velocity = angleTransform.forward * throwSpeed;
+                Throwable throwable = grabbedObject.GetComponent<Throwable>();
+                if (throwable != null)
+                {
+                    Transform angleTransform = transform;
+                    angleTransform.rotation *= Quaternion.Euler(throwAngle);
+                    grabbedObject.position += angleTransform.forward * throwOffset;
+                    rigidbody.velocity = angleTransform.forward * throwSpeed;
+
+                    rigidbody.angularVelocity = angleTransform.up * spinSpeed;
+                }
             }
 
             grabbedObject = null;
