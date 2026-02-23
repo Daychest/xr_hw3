@@ -19,6 +19,8 @@ public class Hand : MonoBehaviour
     public GameObject followObject;
     public float followSpeed = 30f;
     public float rotateSpeed = 100f;
+    public Vector3 positionOffset;
+    public Vector3 rotationOffset;
     private Transform followTarget;
     private Rigidbody body;
 
@@ -51,11 +53,13 @@ public class Hand : MonoBehaviour
     private void PhysicsMove()
     {
         //Position
-        var distance = Vector3.Distance(followTarget.position, transform.position);
-        body.velocity = (followTarget.position - transform.position).normalized * (followSpeed * distance);
+        var positionWithOffset = followTarget.position + positionOffset;
+        var distance = Vector3.Distance(positionWithOffset, transform.position);
+        body.velocity = (positionWithOffset - transform.position).normalized * (followSpeed * distance);
 
         //Rotation
-        var q = followTarget.rotation * Quaternion.Inverse(body.rotation);
+        var rotationWithOffset = followTarget.rotation * Quaternion.Euler(rotationOffset);
+        var q = rotationWithOffset * Quaternion.Inverse(body.rotation);
         q.ToAngleAxis(out float angle, out Vector3 axis);
         body.angularVelocity = axis * (angle * Mathf.Deg2Rad * rotateSpeed);
     }
