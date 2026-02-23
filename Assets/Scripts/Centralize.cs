@@ -21,6 +21,10 @@ public class Centralize : MonoBehaviour
     {
         if (action.action.WasPressedThisFrame())
         {
+            Vector3 newRotation = xrOriginTransform.eulerAngles;
+            newRotation.y += startTransform.eulerAngles.y - cameraTransform.eulerAngles.y;
+            xrOriginTransform.eulerAngles = newRotation;
+
             xrOriginTransform.position += startTransform.position - cameraTransform.position;
         }
     }
