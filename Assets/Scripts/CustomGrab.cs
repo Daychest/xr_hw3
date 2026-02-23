@@ -10,12 +10,15 @@ public class CustomGrab : MonoBehaviour
     // Make sure to define the input in the editor (LeftHand/Grip and RightHand/Grip recommended respectively)
     CustomGrab otherHand = null;
     public List<Transform> nearObjects = new List<Transform>();
-    public Transform grabbedObject = null;
+    [HideInInspector] public Transform grabbedObject = null;
     public InputActionReference action;
     bool grabbing = false;
 
     Vector3 lastPosition;
     Quaternion lastRotation;
+
+    public Vector3 testpos;
+    public Vector3 testrot;
 
     private void Start()
     {
@@ -66,8 +69,11 @@ public class CustomGrab : MonoBehaviour
                 Throwable throwable = grabbedObject.GetComponent<Throwable>();
                 if (throwable != null)
                 {
-                    grabbedObject.position = transform.position + transform.TransformDirection(throwable.grabPositionOffset);
-                    grabbedObject.rotation = transform.rotation * Quaternion.Euler(throwable.grabRotationOffset);
+                    grabbedObject.position = transform.position + transform.TransformDirection(Vector3.Scale(throwable.grabPositionOffset, testpos));
+
+                    grabbedObject.rotation = transform.rotation;
+                    grabbedObject.rotation *= Quaternion.Euler(testrot);
+                    grabbedObject.rotation *= Quaternion.Euler(throwable.grabRotationOffset);
                 }
             }
         }
