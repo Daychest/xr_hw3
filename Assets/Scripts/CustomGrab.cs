@@ -21,6 +21,11 @@ public class CustomGrab : MonoBehaviour
     private Vector3 grabPositionCorrection = new Vector3(1, 1, 1);
     private Vector3 grabRotationCorrection = new Vector3(0, 0, 0);
 
+    public float throwSpeed = 50;
+    public float throwOffset = 1;
+    public Vector3 throwAngle;
+
+
     private void Start()
     {
         lastPosition = transform.position;
@@ -52,21 +57,24 @@ public class CustomGrab : MonoBehaviour
             {
                 grabbedObject = nearObjects.Count > 0 ? nearObjects[0] : otherHand.grabbedObject;
 
-                Rigidbody rigidbody = grabbedObject.GetComponent<Rigidbody>();
-                if (rigidbody != null)
+                if (grabbedObject)
                 {
-                    rigidbody.isKinematic = true;
-                    rigidbody.detectCollisions = false;
-                }
+                    Rigidbody rigidbody = grabbedObject.GetComponent<Rigidbody>();
+                    if (rigidbody != null)
+                    {
+                        rigidbody.isKinematic = true;
+                        rigidbody.detectCollisions = false;
+                    }
 
-                Throwable throwable = grabbedObject.GetComponent<Throwable>();
-                if (throwable != null)
-                {
-                    grabbedObject.position = transform.position + transform.TransformDirection(Vector3.Scale(throwable.grabPositionOffset, grabPositionCorrection));
+                    Throwable throwable = grabbedObject.GetComponent<Throwable>();
+                    if (throwable != null)
+                    {
+                        grabbedObject.position = transform.position + transform.TransformDirection(Vector3.Scale(throwable.grabPositionOffset, grabPositionCorrection));
 
-                    grabbedObject.rotation = transform.rotation;
-                    grabbedObject.rotation *= Quaternion.Euler(grabRotationCorrection);
-                    grabbedObject.rotation *= Quaternion.Euler(throwable.grabRotationOffset);
+                        grabbedObject.rotation = transform.rotation;
+                        grabbedObject.rotation *= Quaternion.Euler(grabRotationCorrection);
+                        grabbedObject.rotation *= Quaternion.Euler(throwable.grabRotationOffset);
+                    }
                 }
             }
 
@@ -102,7 +110,14 @@ public class CustomGrab : MonoBehaviour
             {
                 rigidbody.isKinematic = false;
                 rigidbody.detectCollisions = true;
+
+                Transform temp = transform;
+                //Quaternion angle = Quaternion.Euler(transform.forward);
+                temp.rotation *= Quaternion.Euler(throwAngle);
+                grabbedObject.position += temp.forward * throwOffset;
+                rigidbody.velocity = temp.forward * throwSpeed;
             }
+
             grabbedObject = null;
         }
 
