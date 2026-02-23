@@ -14,6 +14,8 @@ public class Centralize : MonoBehaviour
     void Start()
     {
         action.action.Enable();
+
+        setToCenter();
     }
 
     // Update is called once per frame
@@ -21,11 +23,16 @@ public class Centralize : MonoBehaviour
     {
         if (action.action.WasPressedThisFrame())
         {
-            Vector3 newRotation = xrOriginTransform.eulerAngles;
-            newRotation.y += startTransform.eulerAngles.y - cameraTransform.eulerAngles.y;
-            xrOriginTransform.eulerAngles = newRotation;
-
-            xrOriginTransform.position += startTransform.position - cameraTransform.position;
+            setToCenter();
         }
+    }
+
+    void setToCenter()
+    {
+        Vector3 newRotation = xrOriginTransform.eulerAngles;
+        newRotation.y += startTransform.eulerAngles.y - cameraTransform.eulerAngles.y;
+        xrOriginTransform.eulerAngles = newRotation;
+
+        xrOriginTransform.position += startTransform.position - cameraTransform.position;
     }
 }
