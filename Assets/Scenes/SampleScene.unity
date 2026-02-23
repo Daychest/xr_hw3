@@ -2922,6 +2922,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &883614376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 883614377}
+  m_Layer: 0
+  m_Name: startPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &883614377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883614376}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &912476587 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4729290118545964333, guid: 613729429bc48aa489a882fc91565fe4,
@@ -3575,6 +3606,7 @@ GameObject:
   - component: {fileID: 1221575572}
   - component: {fileID: 1221575569}
   - component: {fileID: 1221575573}
+  - component: {fileID: 1221575574}
   m_Layer: 0
   m_Name: scriptExecutor
   m_TagString: Untagged
@@ -3657,6 +3689,22 @@ MonoBehaviour:
     type: 3}
   controller: {fileID: 2085652866}
   thingToAttract: {fileID: 329045014}
+--- !u!114 &1221575574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221575568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5bddc4c47446c47898af8ae5af20c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: {fileID: 5113088590926889233, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
+  xrOriginTransform: {fileID: 1887119770}
+  cameraTransform: {fileID: 1439586427}
+  startTransform: {fileID: 883614377}
 --- !u!1001 &1236459248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6062,13 +6110,14 @@ CapsuleCollider:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1221575570}
+  - {fileID: 883614377}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 725720211}
   - {fileID: 118392901}
   - {fileID: 741979660}
   - {fileID: 1887119770}
-  - {fileID: 1221575570}
   - {fileID: 1719865333}
   - {fileID: 293512165}
   - {fileID: 1516278580}
