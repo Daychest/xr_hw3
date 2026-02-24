@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 
 public class Centralize : MonoBehaviour
 {
-    public InputActionReference action;
+    public InputActionReference leftButton;
+    public InputActionReference rightButton;
     public Transform xrOriginTransform;
     public Transform cameraTransform;
     public Transform startTransform;
@@ -13,7 +14,8 @@ public class Centralize : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        action.action.Enable();
+        leftButton.action.Enable();
+        rightButton.action.Enable();
 
         setToCenter();
     }
@@ -21,7 +23,7 @@ public class Centralize : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (action.action.WasPressedThisFrame())
+        if (leftButton.action.WasPressedThisFrame() || rightButton.action.WasPressedThisFrame())
         {
             setToCenter();
         }
