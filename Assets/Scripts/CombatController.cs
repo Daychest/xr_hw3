@@ -103,6 +103,7 @@ public class CombatController : MonoBehaviour
                     timer = victoryTimer;
                     staticWall.SetActive(true);
                     gameWon = true;
+                    return;
                 }
                 RoomController.combatText.GetComponent<GradualText>().displayWave();
             }

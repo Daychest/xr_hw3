@@ -24,7 +24,7 @@ public class InitRoomController : MonoBehaviour
 
         RoomController.combatText = combatText;
 
-        RoomController.gotoRespawn();
+        RoomController.gotoStart();
     }
 
     // Update is called once per frame
