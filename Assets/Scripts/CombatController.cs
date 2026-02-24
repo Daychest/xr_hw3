@@ -21,6 +21,11 @@ public class CombatController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!RoomController.doCombat)
+        {
+            return;
+        }
+
         timer -= Time.deltaTime;
         if (timer < 0)
         {

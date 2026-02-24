@@ -29,7 +29,7 @@ public class Centralize : MonoBehaviour
         }
     }
 
-    void setToCenter()
+    public void setToCenter()
     {
         Vector3 newRotation = xrOriginTransform.eulerAngles;
         newRotation.y += startTransform.eulerAngles.y - cameraTransform.eulerAngles.y;
