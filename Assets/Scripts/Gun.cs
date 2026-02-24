@@ -32,7 +32,6 @@ public class Gun : MonoBehaviour
             if (shootActionRight.action.WasPressedThisFrame())
             {
                 shoot = true;
-                Debug.Log("AAAAAAAAAAA");
             }
         }
         else
@@ -40,7 +39,6 @@ public class Gun : MonoBehaviour
             if (shootActionLeft.action.WasPressedThisFrame())
             {
                 shoot = true;
-                Debug.Log("AAAAAAAAAAA");
             }
         }
 

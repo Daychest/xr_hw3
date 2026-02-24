@@ -9,6 +9,7 @@ public class InitRoomController : MonoBehaviour
     public  Transform combatPosition;
     public  Transform respawnPosition;
     public  CombatController combatController;
+    public  GameObject combatText;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,8 @@ public class InitRoomController : MonoBehaviour
 
         RoomController.centralize = GetComponent<Centralize>();
         RoomController.combatController = combatController;
+
+        RoomController.combatText = combatText;
 
         RoomController.gotoRespawn();
     }
