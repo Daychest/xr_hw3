@@ -22,7 +22,7 @@ public static class RoomController
     private static bool haveBeenInCombat = true;
 
     public static int wave = 1;
-    public static int maxWaves = 3;
+    public static int maxWaves = 5;
 
     public static void gotoStart()
     {
@@ -42,11 +42,12 @@ public static class RoomController
         }
         else
         {
-            combatText.GetComponent<GradualText>().displayText("Wave " + wave + "/" + maxWaves);
+            combatText.GetComponent<GradualText>().displayWave();
         }
         doCombat = true;
         centralPosition.transform.position = combatPosition.position;
         centralize.setToCenter();
+        combatController.enemiesLeft = combatController.enemiesPerWave;
         combatController.deleteEnemies();
         bigGrabColliders = true;
     }

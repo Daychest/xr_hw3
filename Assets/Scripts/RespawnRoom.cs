@@ -8,6 +8,9 @@ public class RespawnRoom : MonoBehaviour
     public Transform knifeSpawnPos;
     private GameObject currentKnife;
 
+    private float timer = 0;
+    private float respawnCooldown = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +20,21 @@ public class RespawnRoom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentKnife.transform.position != knifeSpawnPos.position)
+        if (RoomController.doCombat)
         {
-            RoomController.gotoCombat();
-            currentKnife = Instantiate(knife, knifeSpawnPos.position, knifeSpawnPos.rotation);
+            return;
+        }
+
+        timer -= Time.deltaTime;
+
+        if (timer <= 0)
+        {
+            timer = respawnCooldown;
+            if (currentKnife.transform.position != knifeSpawnPos.position)
+            {
+                RoomController.gotoCombat();
+                currentKnife = Instantiate(knife, knifeSpawnPos.position, knifeSpawnPos.rotation);
+            }
         }
     }
 }

@@ -374,6 +374,6 @@ MonoBehaviour:
     type: 3}
   shootActionRight: {fileID: -5684558904543120851, guid: e0ca4504471ca124088e1e2cfe6804ae,
     type: 3}
-  ammo: 10000
+  ammo: 1
   rightHand: 0
   bulletSpeed: 10

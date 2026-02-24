@@ -68,6 +68,12 @@ public class GradualText : MonoBehaviour
         text = textToDisplay;
         state = State.adding;
         tmpText.text = "";
+        currentLength = 0;
+    }
+
+    public void displayWave()
+    {
+        displayText("Wave " + RoomController.wave + "/" + RoomController.maxWaves);
     }
 
 }

@@ -18,6 +18,8 @@ public class KnifeEnemy : MonoBehaviour
 
     public bool usesGun;
 
+    [HideInInspector] public CombatController combatController;
+
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +62,7 @@ public class KnifeEnemy : MonoBehaviour
             ThrowWeapon();
             weapon = null;
 
+            combatController.enemyDied(gameObject);
             Destroy(gameObject);
         }
     }
