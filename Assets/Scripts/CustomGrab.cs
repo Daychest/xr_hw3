@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEngine.GraphicsBuffer;
 
 public class CustomGrab : MonoBehaviour
 {
@@ -69,6 +68,7 @@ public class CustomGrab : MonoBehaviour
 
                 if (grabbedObject)
                 {
+                    //Object has been grabbed
                     Rigidbody rigidbody = grabbedObject.GetComponent<Rigidbody>();
                     if (rigidbody != null)
                     {
@@ -84,6 +84,12 @@ public class CustomGrab : MonoBehaviour
                         grabbedObject.rotation = transform.rotation;
                         grabbedObject.rotation *= Quaternion.Euler(grabRotationCorrection);
                         grabbedObject.rotation *= Quaternion.Euler(throwable.grabRotationOffset);
+                    }
+
+                    Gun gun = grabbedObject.GetComponent<Gun>();
+                    if (gun)
+                    {
+                        gun.rightHand = rightHand;
                     }
                 }
             }

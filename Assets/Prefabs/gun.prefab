@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &509660185914807631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8707104760114142576}
+  m_Layer: 0
+  m_Name: bulletCreatePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8707104760114142576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509660185914807631}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.0683, z: 0.2631}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3910135713655122854}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1001 &3587450029826509901
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70,7 +101,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: a54f8346bb4df73478c3ff331db1b798,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8707104760114142576}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a54f8346bb4df73478c3ff331db1b798,
         type: 3}
@@ -88,7 +123,17 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8284655945317278829}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a54f8346bb4df73478c3ff331db1b798,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7765589524587606557}
   m_SourcePrefab: {fileID: 100100000, guid: a54f8346bb4df73478c3ff331db1b798, type: 3}
+--- !u!4 &3910135713655122854 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a54f8346bb4df73478c3ff331db1b798,
+    type: 3}
+  m_PrefabInstance: {fileID: 3587450029826509901}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4397843214754328860 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a54f8346bb4df73478c3ff331db1b798,
@@ -310,3 +355,25 @@ MonoBehaviour:
   grabPositionOffset: {x: 0, y: 0.02, z: 0.02}
   grabRotationOffset: {x: 0, y: -30, z: -90}
   thrown: 0
+--- !u!114 &7765589524587606557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4397843214754328860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea5288fb996d3b43b3d6f08cca87a6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 8664062007208817478, guid: f8b16e4a348d29944855ad46bf1cd861,
+    type: 3}
+  bulletCreationTransform: {fileID: 8707104760114142576}
+  shootActionLeft: {fileID: 2526168894431210536, guid: e0ca4504471ca124088e1e2cfe6804ae,
+    type: 3}
+  shootActionRight: {fileID: -5684558904543120851, guid: e0ca4504471ca124088e1e2cfe6804ae,
+    type: 3}
+  ammo: 10000
+  rightHand: 0
+  bulletSpeed: 10
