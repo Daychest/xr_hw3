@@ -22,11 +22,17 @@ public class KnifeEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Transform temp = transform;
-        temp.LookAt(runTarget);
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, temp.eulerAngles.y, transform.eulerAngles.z);
+        Vector3 direction = runTarget.position - transform.position;
+        direction.y = 0;
+        if (direction != Vector3.zero)
+        {
+            Quaternion rotation = Quaternion.LookRotation(direction);
+            transform.rotation = rotation;
+        }
 
-
+        Vector3 positionToAdd = transform.forward * runSpeed * Time.deltaTime;
+        positionToAdd.y = 0;
+        transform.position += positionToAdd;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,8 +40,12 @@ public class KnifeEnemy : MonoBehaviour
         Throwable throwable = other.GetComponent<Throwable>();
         if (throwable != null && throwable.thrown)
         {
+            Destroy(other);
+
             ThrowKnife();
             knife = null;
+
+            Destroy(gameObject);
         }
     }
 
