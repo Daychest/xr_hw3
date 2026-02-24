@@ -15,12 +15,15 @@ public static class RoomController
     public static Centralize centralize;
     public static CombatController combatController;
 
+    public static bool bigGrabColliders = false;
+
     public static void gotoStart()
     {
         doCombat = false;
         centralPosition.transform.position = startPosition.position;
         centralize.setToCenter();
         combatController.deleteEnemies();
+        bigGrabColliders = false;
     }
 
     public static void gotoCombat()
@@ -29,6 +32,7 @@ public static class RoomController
         centralPosition.transform.position = combatPosition.position;
         centralize.setToCenter();
         combatController.deleteEnemies();
+        bigGrabColliders = true;
     }
 
     public static void gotoRespawn()
@@ -37,5 +41,6 @@ public static class RoomController
         centralPosition.transform.position = respawnPosition.position;
         centralize.setToCenter();
         combatController.deleteEnemies();
+        bigGrabColliders = true;
     }
 }

@@ -26,9 +26,13 @@ public class CustomGrab : MonoBehaviour
     public float throwOffset = 0.5f;
     private Vector3 throwAngle = new Vector3(5, -10, 0);
 
+    CapsuleCollider capsuleCollider;
+
 
     private void Start()
     {
+        capsuleCollider = GetComponent<CapsuleCollider>();
+
         lastPosition = transform.position;
         lastRotation = transform.rotation;
 
@@ -53,6 +57,8 @@ public class CustomGrab : MonoBehaviour
 
     void Update()
     {
+        capsuleCollider.enabled = RoomController.bigGrabColliders;
+
         grabbing = action.action.IsPressed();
         if (grabbing)
         {
