@@ -114,7 +114,8 @@ public class CustomGrab : MonoBehaviour
             {
                 rigidbody.isKinematic = false;
                 rigidbody.detectCollisions = true;
-
+                
+                //Throw
                 Throwable throwable = grabbedObject.GetComponent<Throwable>();
                 if (throwable != null)
                 {
@@ -124,6 +125,8 @@ public class CustomGrab : MonoBehaviour
                     rigidbody.velocity = angleTransform.forward * throwSpeed;
 
                     rigidbody.angularVelocity = angleTransform.up * spinSpeed;
+
+                    throwable.thrown = true;
                 }
             }
 

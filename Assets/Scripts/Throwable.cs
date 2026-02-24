@@ -6,6 +6,7 @@ public class Throwable : MonoBehaviour
 {
     public Vector3 grabPositionOffset;
     public Vector3 grabRotationOffset;
+    public bool thrown = false;
 
     // Start is called before the first frame update
     void Start()
