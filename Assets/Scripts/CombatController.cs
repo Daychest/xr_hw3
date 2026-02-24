@@ -8,8 +8,10 @@ public class CombatController : MonoBehaviour
     public Transform target;
 
     private float timer = 0;
-    private float spawnCooldown = 4;
+    private float spawnCooldown = 3;
     public float spawnOffset = 3;
+
+    private List<GameObject> enemies = new List<GameObject>();
     
 
     // Start is called before the first frame update
@@ -33,7 +35,16 @@ public class CombatController : MonoBehaviour
             spawnPos.x += Random.Range(-spawnOffset, spawnOffset);
             timer = spawnCooldown;
             GameObject enemy = Instantiate(knifeEnemy, spawnPos, Quaternion.identity);
+            enemies.Add(enemy);
             enemy.GetComponent<KnifeEnemy>().runTarget = target;
+        }
+    }
+
+    public void deleteEnemies()
+    {
+        foreach(GameObject enemy in enemies)
+        {
+            Destroy(enemy);
         }
     }
 }

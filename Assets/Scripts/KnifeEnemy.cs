@@ -9,6 +9,7 @@ public class KnifeEnemy : MonoBehaviour
 
     public float runSpeed;
     public float launchAngle = 45f;
+    public float spinSpeed = 8f;
 
     public float multiplier;
 
@@ -59,6 +60,7 @@ public class KnifeEnemy : MonoBehaviour
             rb.isKinematic = false;
             rb.useGravity = true;
             rb.velocity = CalculateLaunchVelocity(knife.transform.position, runTarget.position, launchAngle) * multiplier;
+            rb.angularVelocity = knife.transform.right * spinSpeed;
         }
     }
 

@@ -6343,7 +6343,7 @@ GameObject:
   - component: {fileID: 800290785}
   - component: {fileID: 800290786}
   m_Layer: 0
-  m_Name: repawnRoom
+  m_Name: respawnRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6369,7 +6369,6 @@ Transform:
   - {fileID: 1897091742}
   - {fileID: 1529515039}
   - {fileID: 610410312}
-  - {fileID: 1717798245}
   - {fileID: 1116807077}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6835,7 +6834,7 @@ Transform:
   m_GameObject: {fileID: 883614376}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.525, y: 1.375, z: 12.672}
+  m_LocalPosition: {x: 0, y: 4.375, z: 12.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9036,6 +9035,7 @@ MonoBehaviour:
   startPosition: {fileID: 1706327785}
   combatPosition: {fileID: 1201650921}
   respawnPosition: {fileID: 1717798245}
+  combatController: {fileID: 591289141}
 --- !u!4 &1221993471 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4624005263380358, guid: 48ec186542777474bb236dff1694340c,
@@ -11095,9 +11095,11 @@ GameObject:
   - component: {fileID: 1439586429}
   - component: {fileID: 1439586428}
   - component: {fileID: 1439586431}
+  - component: {fileID: 1439586432}
+  - component: {fileID: 1439586433}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11238,6 +11240,54 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!65 &1439586432
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439586426}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.01, y: 0.01, z: 0.01}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1439586433
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439586426}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &1443971677 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8337136006880399257, guid: 354b0d9c827f64fe8bad65aee9c06c4b,
@@ -13290,11 +13340,11 @@ Transform:
   m_GameObject: {fileID: 1717798244}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.375, z: -0.43999958}
+  m_LocalPosition: {x: 0, y: 4.375, z: 12.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 800290785}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1720087900 stripped
 Transform:
@@ -16633,6 +16683,7 @@ SceneRoots:
   - {fileID: 1538791940}
   - {fileID: 1706327785}
   - {fileID: 1201650921}
+  - {fileID: 1717798245}
   - {fileID: 502064556}
   - {fileID: 883614377}
   - {fileID: 410087041}
