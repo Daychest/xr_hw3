@@ -12,6 +12,8 @@ public class CombatController : MonoBehaviour
     public float spawnOffset = 3;
 
     private List<GameObject> enemies = new List<GameObject>();
+
+    int typeCounter = 1;
     
 
     // Start is called before the first frame update
@@ -37,6 +39,12 @@ public class CombatController : MonoBehaviour
             GameObject enemy = Instantiate(knifeEnemy, spawnPos, Quaternion.identity);
             enemies.Add(enemy);
             enemy.GetComponent<KnifeEnemy>().runTarget = target;
+            enemy.GetComponent<KnifeEnemy>().usesGun = (typeCounter == 2);
+            if (typeCounter > 2)
+            {
+                typeCounter = 0;
+            }
+            typeCounter++;
         }
     }
 

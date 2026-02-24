@@ -5,7 +5,10 @@ using UnityEngine;
 public class KnifeEnemy : MonoBehaviour
 {
     public GameObject knife;
+    public GameObject gun;
     public Transform runTarget;
+
+    private GameObject weapon;
 
     public float runSpeed;
     public float launchAngle = 45f;
@@ -13,11 +16,22 @@ public class KnifeEnemy : MonoBehaviour
 
     public float multiplier;
 
+    public bool usesGun;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(CalculateLaunchVelocity(new Vector3(0, 0, 0), new Vector3(1, 0, 0), 45f));
+        if (usesGun)
+        {
+            weapon = gun;
+            Destroy(knife);
+        }
+        else
+        {
+            weapon = knife;
+            Destroy(gun);
+        }
     }
 
     // Update is called once per frame
@@ -43,24 +57,24 @@ public class KnifeEnemy : MonoBehaviour
         {
             Destroy(other);
 
-            ThrowKnife();
-            knife = null;
+            ThrowWeapon();
+            weapon = null;
 
             Destroy(gameObject);
         }
     }
 
-    void ThrowKnife()
+    void ThrowWeapon()
     {
-        if (knife != null)
+        if (weapon != null)
         {
-            knife.transform.parent = null;
-            knife.transform.LookAt(runTarget);
-            Rigidbody rb = knife.GetComponent<Rigidbody>();
+            weapon.transform.parent = null;
+            weapon.transform.LookAt(runTarget);
+            Rigidbody rb = weapon.GetComponent<Rigidbody>();
             rb.isKinematic = false;
             rb.useGravity = true;
-            rb.velocity = CalculateLaunchVelocity(knife.transform.position, runTarget.position, launchAngle) * multiplier;
-            rb.angularVelocity = knife.transform.right * spinSpeed;
+            rb.velocity = CalculateLaunchVelocity(weapon.transform.position, runTarget.position, launchAngle) * multiplier;
+            rb.angularVelocity = weapon.transform.right * spinSpeed;
         }
     }
 
