@@ -64,7 +64,7 @@ public class CustomGrab : MonoBehaviour
             // Grab nearby object or the object in the other hand
             if (!grabbedObject)
             {
-                grabbedObject = nearObjects.Count > 0 ? nearObjects[0] : otherHand.grabbedObject;
+                grabbedObject = nearObjects.Count > 0 ? nearObjects[0] : null;
 
                 if (grabbedObject)
                 {
@@ -125,6 +125,7 @@ public class CustomGrab : MonoBehaviour
             if (rigidbody != null)
             {
                 rigidbody.isKinematic = false;
+                rigidbody.useGravity = true;
                 rigidbody.detectCollisions = true;
                 
                 //Throw
