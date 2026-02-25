@@ -3574,6 +3574,7 @@ GameObject:
   - component: {fileID: 439316531}
   - component: {fileID: 439316530}
   - component: {fileID: 439316529}
+  - component: {fileID: 439316532}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -3681,6 +3682,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1722596271}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &439316532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439316528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b38f23c93b32b5247a3bc81b8a4ff982, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetIntensity: 0
+  targetRange: 0
+  slowDown: 0.2
+  timer: 0
 --- !u!1 &449142109
 GameObject:
   m_ObjectHideFlags: 0
@@ -9408,6 +9425,7 @@ MonoBehaviour:
   combatController: {fileID: 591289141}
   combatText: {fileID: 1809057586}
   combatLight: {fileID: 2017585732}
+  startLight: {fileID: 439316528}
 --- !u!4 &1221993471 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4624005263380358, guid: 48ec186542777474bb236dff1694340c,

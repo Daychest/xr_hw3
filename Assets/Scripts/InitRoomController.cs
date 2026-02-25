@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class InitRoomController : MonoBehaviour
 {
-    public  GameObject startRoom;
-    public  GameObject endRoom;
+    public GameObject startRoom;
+    public GameObject endRoom;
 
-    public  GameObject centralPosition;
-    public  Transform startPosition;
-    public  Transform combatPosition;
-    public  Transform respawnPosition;
-    public  CombatController combatController;
-    public  GameObject combatText;
-    public  GameObject combatLight;
+    public GameObject centralPosition;
+    public Transform startPosition;
+    public Transform combatPosition;
+    public Transform respawnPosition;
+    public CombatController combatController;
+    public GameObject combatText;
+    public GameObject combatLight;
+    public GameObject startLight;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,7 @@ public class InitRoomController : MonoBehaviour
         RoomController.combatText = combatText;
 
         RoomController.combatLight = combatLight;
+        RoomController.startLight = startLight;
 
         RoomController.gotoStart();
     }
@@ -39,6 +41,6 @@ public class InitRoomController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

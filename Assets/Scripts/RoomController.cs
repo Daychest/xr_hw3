@@ -13,6 +13,7 @@ public static class RoomController
     public static Transform respawnPosition;
 
     public static GameObject combatLight;
+    public static GameObject startLight;
 
     public static GameObject combatText;
 
@@ -35,6 +36,14 @@ public static class RoomController
         centralize.setToCenter();
         combatController.deleteEnemies();
         bigGrabColliders = false;
+        if (!haveBeenInCombat)
+        {
+            startLight.GetComponent<GradualLight>().setRange(5.87f);
+        }
+        else
+        {
+            startLight.GetComponent<GradualLight>().setTargetRange(5.87f);
+        }
     }
 
     public static void gotoCombat()
@@ -44,6 +53,8 @@ public static class RoomController
             haveBeenInCombat = true;
             combatLight.GetComponent<GradualLight>().setCooldown(1f);
             combatLight.GetComponent<GradualLight>().setTargetRange(5.87f);
+
+            startLight.GetComponent<GradualLight>().setRange(0f);
 
             startRoom.SetActive(false);
             endRoom.SetActive(true);
