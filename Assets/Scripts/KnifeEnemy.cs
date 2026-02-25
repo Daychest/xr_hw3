@@ -83,7 +83,6 @@ public class KnifeEnemy : MonoBehaviour
 
     Vector3 CalculateLaunchVelocity(Vector3 start, Vector3 end, float angle)
     {
-        Debug.Log(Physics.gravity.y);
         float gravity = Mathf.Abs(Physics.gravity.y);
         float radAngle = angle * Mathf.Deg2Rad;
 

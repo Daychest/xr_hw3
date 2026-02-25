@@ -10,6 +10,8 @@ public static class RoomController
     public static Transform combatPosition;
     public static Transform respawnPosition;
 
+    public static GameObject combatLight;
+
     public static GameObject combatText;
 
     public static bool doCombat = false;
@@ -19,9 +21,9 @@ public static class RoomController
 
     public static bool bigGrabColliders = false;
 
-    private static bool haveBeenInCombat = true;
+    private static bool haveBeenInCombat = false;
 
-    public static int wave = 1;
+    public static int wave = 0;
     public static int maxWaves = 5;
 
     public static void gotoStart()
@@ -38,16 +40,17 @@ public static class RoomController
         if (!haveBeenInCombat)
         {
             haveBeenInCombat = true;
-
+            combatLight.GetComponent<GradualLight>().setCooldown(1f);
+            combatLight.GetComponent<GradualLight>().setTargetRange(5.87f);
         }
         else
         {
             combatText.GetComponent<GradualText>().displayWave();
+            combatController.enemiesLeft = combatController.enemiesPerWave;
         }
         doCombat = true;
         centralPosition.transform.position = combatPosition.position;
         centralize.setToCenter();
-        combatController.enemiesLeft = combatController.enemiesPerWave;
         combatController.deleteEnemies();
         bigGrabColliders = true;
     }

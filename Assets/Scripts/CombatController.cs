@@ -8,7 +8,7 @@ public class CombatController : MonoBehaviour
     public GameObject knifeEnemy;
     public Transform target;
 
-    private float timer = 0;
+    private float timer = 1;
     private float spawnCooldown = 3;
     public float spawnOffset = 3;
 
@@ -29,12 +29,13 @@ public class CombatController : MonoBehaviour
     bool gameWon = false;
     private float victoryTimer = 4;
 
+    bool starting = true;
+
 
     // Start is called before the first frame update
     void Start()
     {
         waveSpeedup = (spawnCooldown - lastWaveSpawnCooldown) / (RoomController.maxWaves - 1);
-        enemiesLeft = enemiesPerWave;
     }
 
     // Update is called once per frame
@@ -46,6 +47,16 @@ public class CombatController : MonoBehaviour
         }
 
         timer -= Time.deltaTime;
+
+        if (starting)
+        {
+            if (timer <= 0)
+            {
+                starting = false;
+                enemyDied(null);
+            }
+            return;
+        }
 
         if (gameWon)
         {
