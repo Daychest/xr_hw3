@@ -22,7 +22,7 @@ public class CombatController : MonoBehaviour
     private float waveSpeedup = 0;
     private int waveEnemyIncrease = 1;
 
-    private List<GameObject> enemies = new List<GameObject>();
+    public List<GameObject> enemies = new List<GameObject>();
 
     int typeCounter = 1;
 
@@ -41,6 +41,8 @@ public class CombatController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        enemies.RemoveAll(e => e == null);
+
         if (!RoomController.doCombat)
         {
             return;
@@ -67,9 +69,9 @@ public class CombatController : MonoBehaviour
             return;
         }
 
-        //enemies.RemoveAll(e => e == null);
         
-        if (timer < 0 || enemies.Count == 0)
+        
+        if (timer < 0)
         {
             Vector3 spawnPos = transform.position;
             spawnPos.x += Random.Range(-spawnOffset, spawnOffset);
@@ -98,10 +100,11 @@ public class CombatController : MonoBehaviour
 
     public void enemyDied(GameObject enemy)
     {
+        
         if (RoomController.doCombat)
         {
             enemiesLeft--;
-            if (enemiesLeft <= 0)
+            if (enemiesLeft <= 0 && enemies.Count <= 1)
             {
                 enemiesPerWave += waveEnemyIncrease;
                 enemiesLeft = enemiesPerWave;

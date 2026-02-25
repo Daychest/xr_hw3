@@ -25,7 +25,7 @@ public static class RoomController
 
     private static bool haveBeenInCombat = false;
 
-    public static int wave = 0;
+    public static int wave = 1;
     public static int maxWaves = 5;
 
     public static void gotoStart()
