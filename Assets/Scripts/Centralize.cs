@@ -11,6 +11,9 @@ public class Centralize : MonoBehaviour
     public Transform cameraTransform;
     public Transform startTransform;
 
+    public GameObject leftText;
+    public GameObject rightText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +29,8 @@ public class Centralize : MonoBehaviour
         if (leftButton.action.WasPressedThisFrame() || rightButton.action.WasPressedThisFrame())
         {
             setToCenter();
+            leftText.SetActive(false);
+            rightText.SetActive(false);
         }
     }
 

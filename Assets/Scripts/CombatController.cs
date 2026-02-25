@@ -8,7 +8,7 @@ public class CombatController : MonoBehaviour
     public GameObject knifeEnemy;
     public Transform target;
 
-    private float timer = 1;
+    private float timer = 2;
     private float spawnCooldown = 3;
     public float spawnOffset = 3;
 
