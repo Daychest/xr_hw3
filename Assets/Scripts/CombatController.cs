@@ -27,7 +27,7 @@ public class CombatController : MonoBehaviour
     int typeCounter = 1;
 
     bool gameWon = false;
-    private float victoryTimer = 4;
+    private float victoryTimer = 3;
 
     bool starting = true;
 
