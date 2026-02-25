@@ -9398,6 +9398,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea2b5bde23dc2640b1d25acfd4ea504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startRoom: {fileID: 1722596270}
+  endRoom: {fileID: 1993573338}
   centralPosition: {fileID: 883614376}
   startPosition: {fileID: 1706327785}
   combatPosition: {fileID: 1201650921}
@@ -14154,7 +14156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1722596271
 Transform:
   m_ObjectHideFlags: 0
@@ -16614,7 +16616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1993573339
 Transform:
   m_ObjectHideFlags: 0

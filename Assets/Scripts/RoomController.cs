@@ -4,6 +4,8 @@ using UnityEngine;
 
 public static class RoomController
 {
+    public static GameObject startRoom;
+    public static GameObject endRoom;
 
     public static GameObject centralPosition;
     public static Transform startPosition;
@@ -42,6 +44,9 @@ public static class RoomController
             haveBeenInCombat = true;
             combatLight.GetComponent<GradualLight>().setCooldown(1f);
             combatLight.GetComponent<GradualLight>().setTargetRange(5.87f);
+
+            startRoom.SetActive(false);
+            endRoom.SetActive(true);
         }
         else
         {

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class InitRoomController : MonoBehaviour
 {
+    public  GameObject startRoom;
+    public  GameObject endRoom;
+
     public  GameObject centralPosition;
     public  Transform startPosition;
     public  Transform combatPosition;
@@ -15,6 +18,9 @@ public class InitRoomController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        RoomController.startRoom = startRoom;
+        RoomController.endRoom = endRoom;
+
         RoomController.centralPosition = centralPosition;
         RoomController.startPosition = startPosition;
         RoomController.combatPosition = combatPosition;
